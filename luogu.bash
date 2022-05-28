@@ -10,7 +10,7 @@ LUOGU_PATH=/home/ye_tianshun/桌面/luogu
 # LUOGU_PATH=/home/ye_tianshun/桌面/luogu
 # alias "luogu"="$LUOGU_PATH/luogu.sh"
 # if [ -f "$LUOGU_PATH/luogu-completion.bash" ]; then
-#         "$LUOGU_PATH/luogu-completion.bash"
+#         . "$LUOGU_PATH/luogu-completion.bash"
 # fi
 #
 
