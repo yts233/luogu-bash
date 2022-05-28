@@ -10,6 +10,8 @@ luogu <subcommand> [...]
 
 ### 子命令
 
+（这里的number可以是题号，如P1234，也可以是任意合法的文件夹名）
+
 ```bash
 new <number>	创建一个新的源代码
 delete <number>	删除现有源代码
