@@ -35,7 +35,7 @@ help		显示此消息
 LUOGU_PATH=/home/ye_tianshun/桌面/luogu（luogu的文件夹）
 alias "luogu"="$LUOGU_PATH/luogu.sh"
 if [ -f "$LUOGU_PATH/luogu-completion.bash" ]; then
-        "$LUOGU_PATH/luogu-completion.bash"
+        . "$LUOGU_PATH/luogu-completion.bash"
 fi
 ```
 5. 用 `source ~/.bash_aliases` 加载脚本
