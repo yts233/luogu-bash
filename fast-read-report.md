@@ -211,7 +211,7 @@ inline void init(){
 	if(buffer==nullptr)
 		buffer=new char[bufferSize];
 	currentPositionOfBuffer=buffer;
-	endOfBuffer=buffer+fread(buffer,bufferSize,bufferSize,stdin);
+	endOfBuffer=buffer+fread(buffer,bufferSize,1,stdin);
 }
 
 inline char getchar1(){
@@ -243,12 +243,12 @@ int main(){
 结果:
 
 ```cpp
-real	0m3.036s
-user	0m2.865s
-sys	0m0.099s
+real	0m3.314s
+user	0m2.932s
+sys	0m0.356s
 
 STDOUT:
-6
+128019
 
 STDERR:
 
