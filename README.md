@@ -22,6 +22,7 @@ code [number]	用 Visual Studio Code 打开工作区
 complie	[number]编译当前目录下的源代码
 run [number]	运行当前目录下的源代码并输出到out文件
 rrun [number]	先complie再run
+project [num]	生成项目目录
 help		显示此消息
 ```
 
