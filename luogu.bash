@@ -255,11 +255,19 @@ makeProjectCurrent() {
 	ln "$LUOGU_PATH/luogu-completion.bash" luogu-completion.bash
 	ln "$LUOGU_PATH/luogu.bash" luogu.bash
 	a=$(pwd)
+	if [ ! -d cmake-build-debug ]; then
+		mkdir cmake-build-debug
+	fi
 	cd cmake-build-debug
 	rm *.in *.out *.err
 	ln "$LUOGU_PATH/$cur_number/$cur_number.in" "$cur_number.in"
 	ln "$LUOGU_PATH/$cur_number/$cur_number.out" "$cur_number.out"
 	ln "$LUOGU_PATH/$cur_number/$cur_number.err" "$cur_number.err"
+
+	if [ ! -d $a/build ]; then
+		mkdir $a/build
+	fi
+
 	cd $a/build
 	rm *.in *.out *.err
 	ln "$LUOGU_PATH/$cur_number/$cur_number.in" "$cur_number.in"
