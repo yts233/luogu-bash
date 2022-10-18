@@ -6,6 +6,12 @@
 # 请在这里配置源代码文件夹路径 LUOGU_PATH
 LUOGU_PATH=/home/ye_tianshun/桌面/luogu
 PROJECT_PATH=$LUOGU_PATH/problem/
+EDITOR_PATH=kate
+CODE_PATH=code
+
+OWNER_NAME=Ye_Tianshun
+OWNER_WEBSITE=https://yts233.tk/
+OWNER_MAIL=admin@yts233.tk
 
 # 请在~/.bash_aliases内添加以下内容
 # LUOGU_PATH=/home/ye_tianshun/桌面/luogu
@@ -13,7 +19,7 @@ PROJECT_PATH=$LUOGU_PATH/problem/
 # if [ -f "$LUOGU_PATH/luogu-completion.bash" ]; then
 #         "$LUOGU_PATH/luogu-completion.bash"
 # fi
-#
+# 
 
 readonly INVALID_LUOGU_PATH_MESSAGE="script error: please edit LUOGU_PATH varrible in luogu"
 readonly UNKNOW_COMMAND_MESSAGE="Unknown command:"
@@ -39,6 +45,15 @@ new_T() {
 	readonly CPP_TEMPLATE=\
 "// LUOGU $1: https://www.luogu.com.cn/problem/$1
 // g++ helper by Ye_Tianshun: https://github.com/yts233/luogu-bash
+
+/*
+ * Template: G++ Helper Default Template
+ * Problem: $1: https://www.luogu.com.cn/problem/$1
+ * Date: $(date)
+ * Owner: ${OWNER_NAME} ( ${OWNER_MAIL} )
+ * Website: ${OWNER_WEBSITE}
+ */
+
 #include <iostream>
 #ifdef DEBUG
 #define PRINT(x) std::cerr<<x;
@@ -46,13 +61,13 @@ new_T() {
 #define TEST_ALL TEST freopen(\"$1.out\",\"w\",stdout);freopen(\"$1.err\",\"w\",stderr);
 #else
 #define PRINT(x)
-#define TEST
+#define TEST //freopen(\"PROBLEM.in\",\"r\",stdin);freopen(\"PROBLEM.out\",\"w\",stdout);
 #define TEST_ALL TEST
 #endif
 typedef long long ll;
 
 int main() {
-    TEST
+    TEST_ALL // <-- 记得改宏，不写freopen见祖宗
     std::ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
     std::cout.tie(nullptr);
@@ -359,13 +374,13 @@ elif [ "$cmd" = "edit" ]; then
 	if [ $? -ne 0 ]; then
 		exit 1
 	fi
-	gnome-text-editor "$LUOGU_PATH/$cur_number/$cur_number.cpp" "$LUOGU_PATH/$cur_number/$cur_number.in" "$LUOGU_PATH/$cur_number/$cur_number.out" "$LUOGU_PATH/$cur_number/$cur_number.err"&
+	$EDITOR_PATH "$LUOGU_PATH/$cur_number/$cur_number.cpp" "$LUOGU_PATH/$cur_number/$cur_number.in" "$LUOGU_PATH/$cur_number/$cur_number.out" "$LUOGU_PATH/$cur_number/$cur_number.err"&
 elif [ "$cmd" = "code" ]; then
 	cur_number=$(get_number "$2")
 	if [ $? -ne 0 ]; then
 		exit 1
 	fi
-	code "$LUOGU_PATH/$cur_number" "$LUOGU_PATH/$cur_number/$cur_number.cpp" "$LUOGU_PATH/$cur_number/$cur_number.in" "$LUOGU_PATH/$cur_number/$cur_number.out" "$LUOGU_PATH/$cur_number/$cur_number.err"
+	$CODE_PATH "$LUOGU_PATH/$cur_number" "$LUOGU_PATH/$cur_number/$cur_number.cpp" "$LUOGU_PATH/$cur_number/$cur_number.in" "$LUOGU_PATH/$cur_number/$cur_number.out" "$LUOGU_PATH/$cur_number/$cur_number.err"
 elif [ "$cmd" = "project" ]; then
 	cur_number=$(get_number "$2")
 	if [ $? -ne 0 ]; then
